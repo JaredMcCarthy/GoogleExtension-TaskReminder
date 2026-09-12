@@ -3,37 +3,28 @@
 //estos se llaman para saber que caztegoria son cada tarea
 
 
-const todoUser = document.getElementById("idTodos")
-const pendUser = document.getElementById("idPendientes")
-const compUser = document.getElementById("idCompletos")
+let addBtn = document.getElementById("btn-agregar")
+let addText = document.getElementById("input-text")
+let addDate = document.getElementById("input-date")
 
 
-// Ambos son los inputs que llamamos cuando el usuario ingresa
-const userText = document.getElementById("input-text");
-const userDate = document.getElementById("input-date");
+let datosInyectados = document.getElementById("data-inyection")
 
-
-// Este es el boton que llamamos cuando se presiona agregar tarea
-let botonAgregar = document.getElementById("btn-agregar");
-
-
-//Aqui es donde se inyectan los nuevos datos
-let nuevosDatos = document.getElementById("inyeccionDatos")
-
+let idCount = 0
 
 let datosUsuario = {
     id: 1,
-    texto: userText,
-    fecha: userDate,
-    estado: "Incompleto"
+    texto: addText,
+    fecha: addDate,
 }
 
-let contador = 1;
 
-function agregarTarea() {
-    botonAgregar.addEventListener('click', () => {
-    nuevosDatos.textContent = contador++ + " " + datosUsuario.texto.value + " " + datosUsuario.fecha.value + " " + datosUsuario.estado
 
+addBtn.addEventListener('click', e => {
+    e.preventDefault();
+    datosInyectados.textContent = datosUsuario.id + " " + datosUsuario.texto.value + " "  + datosUsuario.fecha.value
+
+    //limpiamos los inputs del user
+    addText.value = ' '
+    addDate.value = ' '
 })
-
-}
