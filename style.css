@@ -1,0 +1,233 @@
+/* ---- Tokens ---- */
+:root {
+  --ink: #1f2a24;
+  --paper: #f4f0e6;
+  --card: #ffffff;
+  --moss: #3f5d4a;
+  --moss-dark: #2b4234;
+  --coral: #d16b5a;
+  --line: #d9d2c1;
+  --muted: #7a7568;
+
+  --font-display: "Georgia", "Iowan Old Style", serif;
+  --font-mono: "SFMono-Regular", "Consolas", "Menlo", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--paper);
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px);
+  background-size: 100% 2.1rem;
+  font-family: var(--font-mono);
+  color: var(--ink);
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+}
+
+/* ---- Board ---- */
+.board {
+  width: 100%;
+  max-width: 620px;
+}
+
+.board__header {
+  margin-bottom: 2rem;
+}
+
+.board__eyebrow {
+  margin: 0 0 0.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--coral);
+  font-weight: 600;
+}
+
+.board__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: var(--moss-dark);
+  border-bottom: 3px solid var(--ink);
+  display: inline-block;
+  padding-bottom: 0.15rem;
+}
+
+/* ---- Form ---- */
+.add-form {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.add-form__text,
+.add-form__date {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  padding: 0.75rem 0.9rem;
+  border: 2px solid var(--ink);
+  background: var(--card);
+  color: var(--ink);
+  border-radius: 2px;
+}
+
+.add-form__text {
+  min-width: 0;
+}
+
+.add-form__text:focus,
+.add-form__date:focus {
+  outline: none;
+  border-color: var(--moss);
+  box-shadow: 0 0 0 3px rgba(63, 93, 74, 0.18);
+}
+
+.add-form__button {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.2rem;
+  border: 2px solid var(--ink);
+  background: var(--moss);
+  color: #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+
+.add-form__button:hover {
+  background: var(--moss-dark);
+}
+
+.add-form__button:active {
+  transform: translateY(1px);
+}
+
+/* ---- Filters ---- */
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.filters__btn {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.filters__btn:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* Sugerencia: cuando definas en JS cuál filtro está activo,
+   podés togglear una clase (ej: "is-active") y darle este estilo: */
+.filters__btn.is-active {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: #fff;
+}
+
+/* ---- List ---- */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+/* Estilo sugerido para cada tarjeta de recordatorio que generes por JS.
+   Armá tu <li> con esta clase, o la que prefieras:
+
+   <li class="reminder">
+     <label class="reminder__check"><input type="checkbox"> </label>
+     <div class="reminder__body">
+       <p class="reminder__text">Texto del recordatorio</p>
+       <span class="reminder__date">6 ago</span>
+     </div>
+     <button class="reminder__delete">×</button>
+   </li>
+*/
+.reminder {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 2px;
+  padding: 0.9rem 1rem;
+}
+
+.reminder__check {
+  flex-shrink: 0;
+}
+
+.reminder__check input {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--moss);
+  cursor: pointer;
+}
+
+.reminder__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.reminder__text {
+  margin: 0;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+
+.reminder__date {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* Sugerencia: cuando un recordatorio esté completado, togglear esta clase en el <li> */
+.reminder.is-done .reminder__text {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.reminder__delete {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--coral);
+  cursor: pointer;
+  padding: 0 0.25rem;
+}
+
+.reminder__delete:hover {
+  color: #a8402e;
+}
+
+/* ---- Empty state ---- */
+.empty-state {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 2.5rem;
+  display: none; /* mostralo con JS solo cuando el array esté vacío */
+}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recordatorios</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="board">
+
+    <header class="board__header">
+      <p class="board__eyebrow">Pendientes de hoy</p>
+      <h1 class="board__title">Recordatorios</h1>
+    </header>
+
+    <!-- Formulario para agregar un recordatorio nuevo -->
+    <!-- Aquí vas a necesitar: un id/selector para el texto, otro para la fecha,
+         y otro para el botón, para poder leerlos y engancharles el evento en JS -->
+    <form class="add-form">
+      <input
+        type="text"
+        placeholder="¿Qué necesitás recordar?"
+        class="add-form__text"
+        id="input-text"
+      >
+      <input
+        type="date"
+        class="add-form__date"
+        id="input-date"
+      >
+    </form>
+
+    <button type="submit" class="add-form__button" id="btn-agregar" >Agregar</button>
+
+    <!-- Filtros: todos / pendientes / completados -->
+    <!-- Vas a querer poder identificar cada botón para saber cuál filtro está activo -->
+    <nav class="filters">
+      <button id="idTodos" type="button" class="filters__btn">Todos</button>
+      <button id="idPendientes" type="button" class="filters__btn">Pendientes</button>
+      <button  id="idCompletos" type="button" class="filters__btn">Completados</button>
+    </nav>
+
+    <!-- Acá es donde tu JS va a inyectar los recordatorios con innerHTML o createElement -->
+    <ul class="list" id="inyeccionDatos"></ul>
+
+    <!-- Se muestra solo cuando la lista está vacía -->
+    <p class="empty-state">No tenés recordatorios todavía. Agregá el primero arriba.</p>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
