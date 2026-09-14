@@ -18,7 +18,7 @@
     <!-- Formulario para agregar un recordatorio nuevo -->
     <!-- Aquí vas a necesitar: un id/selector para el texto, otro para la fecha,
          y otro para el botón, para poder leerlos y engancharles el evento en JS -->
-    <form class="add-form">
+    <form class="add-form"> 
       <input
         type="text"
         placeholder="¿Qué necesitás recordar?"
@@ -30,20 +30,19 @@
         class="add-form__date"
         id="input-date"
       >
-    </form>
-
-    <button type="submit" class="add-form__button" id="btn-agregar" >Agregar</button>
+      <button type="button" class="add-form__button" id="btn-agregar">Agregar</button>
+      </form>
 
     <!-- Filtros: todos / pendientes / completados -->
     <!-- Vas a querer poder identificar cada botón para saber cuál filtro está activo -->
     <nav class="filters">
       <button id="idTodos" type="button" class="filters__btn">Todos</button>
       <button id="idPendientes" type="button" class="filters__btn">Pendientes</button>
-      <button  id="idCompletos" type="button" class="filters__btn">Completados</button>
+      <button id="idCompletos" type="button" class="filters__btn">Completados</button>
     </nav>
 
     <!-- Acá es donde tu JS va a inyectar los recordatorios con innerHTML o createElement -->
-    <ul class="list" id="inyeccionDatos"></ul>
+    <ul class="list" id="lista-tareas"></ul>
 
     <!-- Se muestra solo cuando la lista está vacía -->
     <p class="empty-state">No tenés recordatorios todavía. Agregá el primero arriba.</p>
