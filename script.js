@@ -24,18 +24,28 @@ let tareasC = []
 let todasTareas = []
 
 addBtn.addEventListener('click', e => {
+
+    let datosUsuario = {
+        id: idActual,
+        texto: addText.value,
+        fecha: addDate.value,
+        estado: false
+    }
+
+    todasTareas(datosUsuario)
+    //limpiamos los inputs del user
+    addText.value = '';
+    addDate.value = '';
+
     
     e.preventDefault();
     //aqui llamamos a la variable directa usando los del inicio con el value para llamar la info del input
-    let nuevaTarea = idActual++ + " " + datos.texto.value + " " + datos.fecha.value
+    let nuevaTarea = idActual++ + " " + datos.texto.value + " " + datos.fecha.value. //faltaba HACER EL INNER TEXT
     listaTareas.textContent = nuevaTarea
 
     console.log(typeof nuevaTarea)
     console.log(nuevaTarea)
 
-    //limpiamos los inputs del user
-    addText.value = '';
-    addDate.value = '';
 
     //metemos a la nuevaTarea los datos guardados en las variables P y nuevas
     todasTareas.push(nuevaTarea)
@@ -74,18 +84,6 @@ function mostrar(lista) {
 // console.log(miArray.length);
 // console.log(miArray[0]);
 // console.log(miArray[0].texto);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // console.log(addText);
