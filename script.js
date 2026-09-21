@@ -70,21 +70,21 @@ function mostrar(lista) {
     }
 }
 
-// let miArray = [];
-// console.log(miArray);
+let miArray = [];
+console.log(miArray);
 
-// let objeto1 = { texto: "comprar leche" };
-// miArray.push(objeto1);
-// console.log(miArray);
+let objeto1 = { texto: "comprar leche" };
+miArray.push(objeto1);
+console.log(miArray);
 
-// let objeto2 = { texto: "llamar a mamá" };
-// miArray.push(objeto2);
-// console.log(miArray);
+let objeto2 = { texto: "llamar a mamá" };
+miArray.push(objeto2);
+console.log(miArray);
 
-// console.log(miArray.length);
-// console.log(miArray[0]);
-// console.log(miArray[0].texto);
+console.log(miArray.length);
+console.log(miArray[0]);
+console.log(miArray[0].texto);
 
 
-// console.log(addText);
-// console.log(addText.value);
+console.log(addText);
+console.log(addText.value);
